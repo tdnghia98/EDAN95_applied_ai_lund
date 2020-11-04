@@ -1,1 +1,1 @@
-# EDAN95_applied_ai_lund
+# EDAN95 Course: Applied AI
