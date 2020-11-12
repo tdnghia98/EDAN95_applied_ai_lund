@@ -1,4 +1,7 @@
 {
-  "python.dataScience.jupyterServerURI": "local",
-  "python.pythonPath": "C:\\Users\\tdngh\\AppData\\Local\\Programs\\Python\\Python37\\python.exe"
+    "python.pythonPath": "C:\\Users\\tdngh\\AppData\\Local\\Programs\\Python\\Python37\\python.exe",
+    "jupyter.jupyterServerType": "local",
+    "python.linting.mypyEnabled": false,
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
 }
