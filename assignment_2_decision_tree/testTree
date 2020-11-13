@@ -1,6 +1,181 @@
 // The Decision Tree
 digraph {
+	3 [label="
+id: 3
+label: +
+entropy: 0.7219280948873623
+classCounts: defaultdict(<class 'int'>, {'+': 4, '-': 1})
+note: no remaining att"]
+	3 [label="
+id: 3
+label: +
+entropy: 0.7219280948873623
+classCounts: defaultdict(<class 'int'>, {'+': 4, '-': 1})
+note: no remaining att"]
+	2 -> 3
+	4 [label="
+id: 4
+value: /
+label: -
+entropy: 0.0
+classCounts: defaultdict(<class 'int'>, {'-': 1})
+note: only one class"]
+	4 [label="
+id: 4
+value: /
+label: -
+entropy: 0.0
+classCounts: defaultdict(<class 'int'>, {'-': 1})
+note: only one class"]
+	2 -> 4
+	5 [label="
+id: 5
+value: b
+attribute: color
+entropy: 0.9182958340544896
+classCounts: defaultdict(<class 'int'>, {'+': 4, '-': 2})
+note: No sample"]
+	2 -> 5
+	2 [label="
+id: 2
+value: g
+attribute: color
+entropy: 0.9182958340544896
+samples: 1
+classCounts: defaultdict(<class 'int'>, {'+': 4, '-': 2})
+note: updated, with samples"]
+	2 [label="
+id: 2
+value: g
+attribute: color
+entropy: 0.9182958340544896
+samples: 1
+classCounts: defaultdict(<class 'int'>, {'+': 4, '-': 2})
+note: updated, with samples"]
+	1 -> 2
+	6 [label="
+id: 6
+value: /
+label: +
+entropy: 0.0
+classCounts: defaultdict(<class 'int'>, {'+': 2})
+note: only one class"]
+	6 [label="
+id: 6
+value: /
+label: +
+entropy: 0.0
+classCounts: defaultdict(<class 'int'>, {'+': 2})
+note: only one class"]
+	1 -> 6
+	1 [label="
+id: 1
+value: i
+attribute: shape
+entropy: 0.8112781244591328
+samples: 2
+classCounts: defaultdict(<class 'int'>, {'+': 6, '-': 2})
+note: updated, with samples"]
+	1 [label="
+id: 1
+value: i
+attribute: shape
+entropy: 0.8112781244591328
+samples: 2
+classCounts: defaultdict(<class 'int'>, {'+': 6, '-': 2})
+note: updated, with samples"]
+	0 -> 1
+	9 [label="
+id: 9
+label: -
+entropy: 0.9182958340544896
+classCounts: defaultdict(<class 'int'>, {'+': 2, '-': 4})
+note: no remaining att"]
+	9 [label="
+id: 9
+label: -
+entropy: 0.9182958340544896
+classCounts: defaultdict(<class 'int'>, {'+': 2, '-': 4})
+note: no remaining att"]
+	8 -> 9
+	10 [label="
+id: 10
+value: /
+label: +
+entropy: 0.0
+classCounts: defaultdict(<class 'int'>, {'+': 1})
+note: only one class"]
+	10 [label="
+id: 10
+value: /
+label: +
+entropy: 0.0
+classCounts: defaultdict(<class 'int'>, {'+': 1})
+note: only one class"]
+	8 -> 10
+	8 [label="
+id: 8
+value: i
+attribute: shape
+entropy: 0.9852281360342516
+samples: 1
+classCounts: defaultdict(<class 'int'>, {'+': 3, '-': 4})
+note: updated, with samples"]
+	8 [label="
+id: 8
+value: i
+attribute: shape
+entropy: 0.9852281360342516
+samples: 1
+classCounts: defaultdict(<class 'int'>, {'+': 3, '-': 4})
+note: updated, with samples"]
+	7 -> 8
+	11 [label="
+id: 11
+value: /
+label: -
+entropy: 0.0
+classCounts: defaultdict(<class 'int'>, {'-': 1})
+note: only one class"]
+	11 [label="
+id: 11
+value: /
+label: -
+entropy: 0.0
+classCounts: defaultdict(<class 'int'>, {'-': 1})
+note: only one class"]
+	7 -> 11
+	12 [label="
+id: 12
+value: b
+attribute: color
+entropy: 0.9544340029249649
+classCounts: defaultdict(<class 'int'>, {'-': 5, '+': 3})
+note: No sample"]
+	7 -> 12
+	7 [label="
+id: 7
+value: g
+attribute: color
+entropy: 0.9544340029249649
+samples: 1
+classCounts: defaultdict(<class 'int'>, {'-': 5, '+': 3})
+note: updated, with samples"]
+	7 [label="
+id: 7
+value: g
+attribute: color
+entropy: 0.9544340029249649
+samples: 1
+classCounts: defaultdict(<class 'int'>, {'-': 5, '+': 3})
+note: updated, with samples"]
+	0 -> 7
 	0 [label="
 id: 0
-value: hello world"]
+value: l
+attribute: size
+entropy: 0.9886994082884974
+samples: 8
+classCounts: defaultdict(<class 'int'>, {'+': 9, '-': 7})
+note: updated, with samples"]
 }

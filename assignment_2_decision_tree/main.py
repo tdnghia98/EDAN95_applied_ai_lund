@@ -11,7 +11,7 @@ def main():
 
     id3 = ID3.ID3DecisionTreeClassifier()
 
-    myTree = id3.fit(data, target, attributes, classes)
+    myTree = id3.fit(data, target, attributes, classes, attributes)
     print(myTree)
     plot = id3.make_dot_data()
     plot.render("testTree")
