@@ -54,7 +54,9 @@ class ID3DecisionTreeClassifier:
         return self.__dot
 
     # the entry point for the recursive ID3-algorithm, you need to fill in the calls to your recursive implementation
-    def fit(self, data, target, attributes, classes, remaining_attributes=None):
+    def fit(
+        self, data, target, attributes, classes, value=None, remaining_attributes=None
+    ):
 
         # Create a (root) node Root for the tree
         root = self.new_ID3_node("root")
@@ -68,7 +70,7 @@ class ID3DecisionTreeClassifier:
             root.update(
                 {
                     "label": most_common_class,
-                    "value": "/",
+                    "value": "-" if not value else value,
                     "entropy": current_entropy,
                     "classCounts": classes_with_count,
                     "note": "only one class",
@@ -83,6 +85,8 @@ class ID3DecisionTreeClassifier:
             root.update(
                 {
                     "label": most_common_class,
+                    "value": "-" if not value else value,
+                    "samples": len(data),
                     "entropy": current_entropy,
                     "classCounts": classes_with_count,
                     "note": "no remaining att",
@@ -105,7 +109,8 @@ class ID3DecisionTreeClassifier:
         root.update(
             {
                 "attribute": max_split_attribute,
-                "value": "-",
+                "value": "-" if not value else value,
+                "samples": len(data),
                 "entropy": current_entropy,
                 "classCounts": classes_with_count,
                 "note": "root node",
@@ -123,17 +128,13 @@ class ID3DecisionTreeClassifier:
             samples = max_subsets[attribute_value]
             sample_target = max_targets[attribute_value]
             node = None
-            if root["id"] == 0:
-                print("ATTTT %s" % attribute_value)
             if not samples:
                 node = self.new_ID3_node("child")
                 node.update(
                     {
-                        "attribute": max_split_attribute,
-                        "value": attribute_value,
-                        # TODO
-                        "entropy": current_entropy,
-                        "classCounts": classes_with_count,
+                        "value": "-" if not value else value,
+                        "samples": 0,
+                        "classCounts": 0,
                         "note": "No sample",
                     }
                 )
@@ -145,17 +146,8 @@ class ID3DecisionTreeClassifier:
                     sample_target,
                     attributes,
                     classes,
-                    remaining_attributes,
-                )
-                root.update(
-                    {
-                        "samples": len(samples),
-                        "attribute": max_split_attribute,
-                        "value": attribute_value,
-                        "entropy": current_entropy,
-                        "classCounts": classes_with_count,
-                        "note": "updated, with samples",
-                    }
+                    value=attribute_value,
+                    remaining_attributes=remaining_attributes,
                 )
 
             root["nodes"][attribute_value] = node
