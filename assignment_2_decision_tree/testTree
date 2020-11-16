@@ -22,6 +22,7 @@ id: 4
 value: g
 label: -
 entropy: 0.0
+samples: 1
 classCounts: defaultdict(<class 'int'>, {'-': 1})
 note: only one class"]
 	4 [label="
@@ -29,12 +30,14 @@ id: 4
 value: g
 label: -
 entropy: 0.0
+samples: 1
 classCounts: defaultdict(<class 'int'>, {'-': 1})
 note: only one class"]
 	2 -> 4
 	5 [label="
 id: 5
 value: r
+label: +
 samples: 0
 classCounts: 0
 note: No sample"]
@@ -61,6 +64,7 @@ id: 6
 value: i
 label: +
 entropy: 0.0
+samples: 2
 classCounts: defaultdict(<class 'int'>, {'+': 2})
 note: only one class"]
 	6 [label="
@@ -68,6 +72,7 @@ id: 6
 value: i
 label: +
 entropy: 0.0
+samples: 2
 classCounts: defaultdict(<class 'int'>, {'+': 2})
 note: only one class"]
 	1 -> 6
@@ -110,6 +115,7 @@ id: 10
 value: i
 label: +
 entropy: 0.0
+samples: 1
 classCounts: defaultdict(<class 'int'>, {'+': 1})
 note: only one class"]
 	10 [label="
@@ -117,6 +123,7 @@ id: 10
 value: i
 label: +
 entropy: 0.0
+samples: 1
 classCounts: defaultdict(<class 'int'>, {'+': 1})
 note: only one class"]
 	8 -> 10
@@ -142,6 +149,7 @@ id: 11
 value: g
 label: -
 entropy: 0.0
+samples: 1
 classCounts: defaultdict(<class 'int'>, {'-': 1})
 note: only one class"]
 	11 [label="
@@ -149,12 +157,14 @@ id: 11
 value: g
 label: -
 entropy: 0.0
+samples: 1
 classCounts: defaultdict(<class 'int'>, {'-': 1})
 note: only one class"]
 	7 -> 11
 	12 [label="
 id: 12
 value: l
+label: -
 samples: 0
 classCounts: 0
 note: No sample"]

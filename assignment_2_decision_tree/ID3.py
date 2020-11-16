@@ -71,6 +71,7 @@ class ID3DecisionTreeClassifier:
                 {
                     "label": most_common_class,
                     "value": "-" if not value else value,
+                    "samples": list(classes_with_count.values())[0],
                     "entropy": current_entropy,
                     "classCounts": classes_with_count,
                     "note": "only one class",
@@ -133,6 +134,7 @@ class ID3DecisionTreeClassifier:
                 node.update(
                     {
                         "value": "-" if not value else value,
+                        "label": most_common_class,
                         "samples": 0,
                         "classCounts": 0,
                         "note": "No sample",
@@ -159,8 +161,20 @@ class ID3DecisionTreeClassifier:
     def predict(self, data, tree):
         predicted = list()
 
+        for element in data:
+            label = self.traverse_tree(element, tree)
+            predicted.append(label)
+
         # fill in something more sensible here... root should become the output of the recursive tree creation
         return predicted
+
+    def traverse_tree(self, element, tree):
+        if len(tree["nodes"]) == 0:
+            return tree["label"]
+        else:
+            for child in tree["nodes"].values():
+                if child["value"] in element:
+                    return self.traverse_tree(element, child)
 
     def entropy(self, data, classes_with_count):
         entropy = 0
