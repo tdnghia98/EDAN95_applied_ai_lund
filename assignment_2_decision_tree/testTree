@@ -188,7 +188,6 @@ note: root node"]
 	0 -> 7
 	0 [label="
 id: 0
-value: -
 attribute: size
 entropy: 0.9886994082884974
 samples: 16

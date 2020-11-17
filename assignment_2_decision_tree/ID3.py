@@ -2,6 +2,8 @@ from collections import Counter, defaultdict
 from graphviz import Digraph
 import math
 
+from numpy.core.arrayprint import array2string
+
 
 class ID3DecisionTreeClassifier:
     def __init__(self, minSamplesLeaf=1, minSamplesSplit=2):
@@ -29,7 +31,7 @@ class ID3DecisionTreeClassifier:
             "nodes": {},
             "note": None,
         }
-        print("New node created %s" % name)
+        # print("New node created %s" % name)
         self.__nodeCounter += 1
         return node
 
@@ -45,7 +47,7 @@ class ID3DecisionTreeClassifier:
             self.__dot.edge(str(parentid), str(node["id"]))
             nodeString += "\n" + str(parentid) + " -> " + str(node["id"])
 
-        print(nodeString)
+        # print(nodeString)
 
         return
 
@@ -70,7 +72,7 @@ class ID3DecisionTreeClassifier:
             root.update(
                 {
                     "label": most_common_class,
-                    "value": "-" if not value else value,
+                    "value": value,
                     "samples": list(classes_with_count.values())[0],
                     "entropy": current_entropy,
                     "classCounts": classes_with_count,
@@ -86,7 +88,7 @@ class ID3DecisionTreeClassifier:
             root.update(
                 {
                     "label": most_common_class,
-                    "value": "-" if not value else value,
+                    "value": value,
                     "samples": len(data),
                     "entropy": current_entropy,
                     "classCounts": classes_with_count,
@@ -110,7 +112,7 @@ class ID3DecisionTreeClassifier:
         root.update(
             {
                 "attribute": max_split_attribute,
-                "value": "-" if not value else value,
+                "value": value,
                 "samples": len(data),
                 "entropy": current_entropy,
                 "classCounts": classes_with_count,
@@ -133,7 +135,7 @@ class ID3DecisionTreeClassifier:
                 node = self.new_ID3_node("child")
                 node.update(
                     {
-                        "value": "-" if not value else value,
+                        "value": attribute_value,
                         "label": most_common_class,
                         "samples": 0,
                         "classCounts": 0,
@@ -163,6 +165,8 @@ class ID3DecisionTreeClassifier:
 
         for element in data:
             label = self.traverse_tree(element, tree)
+            if label is None:
+                raise KeyError
             predicted.append(label)
 
         # fill in something more sensible here... root should become the output of the recursive tree creation
@@ -170,11 +174,17 @@ class ID3DecisionTreeClassifier:
 
     def traverse_tree(self, element, tree):
         if len(tree["nodes"]) == 0:
-            return tree["label"]
-        else:
-            for child in tree["nodes"].values():
-                if child["value"] in element:
-                    return self.traverse_tree(element, child)
+            label = tree["label"]
+            if label is None:
+                return -1
+            return label
+
+        attribute_idx = tree["attribute"]
+        # Iterate through all child node of "tree" node (current node)
+        for child in tree["nodes"].values():
+            if child["value"] == element[attribute_idx]:
+                return self.traverse_tree(element, child)
+        return 0
 
     def entropy(self, data, classes_with_count):
         entropy = 0

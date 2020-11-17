@@ -11,6 +11,14 @@
       "program": "${fileDirname}/main.py",
       "console": "integratedTerminal",
       "cwd": "${fileDirname}"
+    },
+    {
+      "name": "Python: Notebook export",
+      "type": "python",
+      "request": "launch",
+      "program": "${fileDirname}/export_2.py",
+      "console": "integratedTerminal",
+      "cwd": "${fileDirname}"
     }
   ]
 }
