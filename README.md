@@ -1,0 +1,1 @@
+# EDAN95 Course: Applied AI

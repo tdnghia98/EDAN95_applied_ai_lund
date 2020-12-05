@@ -1,0 +1,7 @@
+{
+    "python.pythonPath": "/Users/duy/opt/anaconda3/envs/ai/bin/python",
+    "jupyter.jupyterServerType": "local",
+    "python.linting.mypyEnabled": false,
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
+}
