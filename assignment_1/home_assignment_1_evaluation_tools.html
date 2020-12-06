@@ -14270,7 +14270,7 @@ a.anchor-link {
 <li>Clustering: KMeans
 ### b. One of the methods is a supervised method, one is unsupervised. Which one is which, and what does that mean?</li>
 <li>The KNN classifier is a supervised method, which means the training dataset are labeled and the test data are associated to the existing labels. k is the number of nearest neighbors.</li>
-<li>KMeans is an unsupervised method, which means the data is not labeled and the classifier create clusters based on the input data. k is the total number of clusters.</li>
+<li>KMeans is an unsupervised method, which means the data is not labeled and the method creates clusters based on the input data. k is the total number of clusters.</li>
 </ul>
 
 </div>
@@ -14289,8 +14289,8 @@ a.anchor-link {
 <p><code>metrics.classification_report( &lt;test_labels&gt;, &lt;predicted&gt;)</code></p>
 <p>The rows corresponds to classes (or labels). The columns are:</p>
 <ul>
-<li>Precision: True positive / (True positive + False positive) </li>
-<li>Recall: True positive/ (True positive + False Negative)</li>
+<li>Precision: True positive / (True positive + False positive) ~ The number of people that are really sick out of the predicted sick people</li>
+<li>Recall: True positive/ (True positive + False negative) ~ The number of predicted sick people out of the real sick people</li>
 <li>F1-score: is the harmonic mean of precision and recall</li>
 <li>Support: counts the number of elements classified into that class</li>
 </ul>
@@ -14314,17 +14314,17 @@ metrics.adjusted_mutual_info_score( &lt;train_labels&gt;, &lt;clustered&gt;)</co
 <ul>
 <li>Completeness score: measures how well a member of a given class is classified in the same cluster</li>
 <li>Homogeneity score: measures how well a cluster only contains a single class</li>
-<li>Adjusted mutual info score: measures how much information we can get about one cluster set by looking at another cluster set</li>
+<li>Adjusted mutual info score: This is a measure of the similarity of two labels of the same data. By applying it to clusters, we can evaluate how they are similar and how much we can understand one cluster when looking at the other</li>
 </ul>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="d.-Using-clustering-result-for-classification">d. Using clustering result for classification<a class="anchor-link" href="#d.-Using-clustering-result-for-classification">&#182;</a></h3><p>By using the clustering classifier on the dataset, we can seperate the data into clusters. We can then:</p>
+<h3 id="d.-Using-clustering-result-for-classification">d. Using clustering result for classification<a class="anchor-link" href="#d.-Using-clustering-result-for-classification">&#182;</a></h3><p>By using the clustering on the dataset, we can seperate the data into clusters. We can then:</p>
 <ul>
 <li>Use the cluster as a feature for the dataset</li>
-<li>Divide the dataset into smaller groups and train a specific classification classifier on each group</li>
+<li>Divide the dataset into smaller groups and train a classifier on each group</li>
 </ul>
 
 </div>
